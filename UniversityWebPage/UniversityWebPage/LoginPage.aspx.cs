@@ -19,9 +19,11 @@ namespace UniversityWebPage
 
         protected void btnCancel_Click(object sender, EventArgs e) //cuando apretamos el botón cancelar: 
         {
-            //se vacía lo que haya escrito el usuario en los inputs
+            //se vacía lo que haya escrito el usuario en los inputs y se ocultan los label de errores:
             txtLoginID.Text = string.Empty; 
             txtLoginPass.Text = string.Empty;
+            lblErrorID.Visible = false;
+            lblErrorPass.Visible = false;
 
             //y se vuelve a la home page.
             //Response.Redirect(HomePage.aspx);
@@ -46,7 +48,7 @@ namespace UniversityWebPage
 
                 string[] loginDataList = new string[3]; //creamos el array donde vamos a recoger los datos
 
-                string query = "SELECT ID, Password, Category FROM Users WHERE ID='" + insertedIDNumber +"'"; //hacemos un Select con el ID de usuario
+                string query = "SELECT Users.ID, Users.Password, UserCategories.Name FROM Users, UserCategories WHERE Users.ID ='" + insertedIDNumber +"' AND Users.Category = UserCategories.ID"; //hacemos un Select con el ID de usuario
 
                 //metemos lo que seleccione en un DataReader:
 
@@ -64,43 +66,59 @@ namespace UniversityWebPage
                     loginDataList[2] = row[2].ToString();
                 }
 
-                lblPrueba.Text = "'" + loginDataList[0] + "'" + loginDataList[1] + "'" + loginDataList[2] + "'";
+                //lblPrueba.Text = "'" + loginDataList[0] + "'" + loginDataList[1] + "'" + loginDataList[2] + "'";
 
-            }
-
-
-            /*
-            using (SQLiteConnection conn = new SQLiteConnection("Data Source=" + DBPath + ";Version=3;"))
-            {
-                conn.Open();
-
-                string[] loginDataList = new string[2];
-
-                string Username = txtLoginName.Text;
-                string Userpass = txtLoginPass.Text;
-
-                string query = "SELECT username, password, profile FROM Users WHERE username='" + Username + "' AND password='" + Userpass + "'";
-
-                SQLiteCommand comm = new SQLiteCommand(query, conn);
-
-                SQLiteDataReader reader = comm.ExecuteReader();
-
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-
-                foreach (DataRow dr in dt.Rows)
+                if (loginDataList[0] == null) //si no ha encontrado el dni del usuario:
                 {
-                    loginDataList[0] = dr[0].ToString();
-                    loginDataList[1] = dr[2].ToString();
+                    lblErrorID.Visible = true; //se muestra el error de ID incorrecto
+                }
+                else //si ha encontrado el dni del usuario:
+                {
+                    lblErrorID.Visible = false; //se esconde el error del ID incorrecto
+                    if(insertedPass == loginDataList[1]) //si la contraseña de la bbdd es la misma que la que ha escrito el usuario:
+                    {
+                        //ocultamos el label del error de password:
+                        lblErrorPass.Visible = false;
+
+                        //guardamos el ID y la categoria en Session, no guardamos la password para tener más seguridad y no tener la password todo el tiempo guardada.
+                        Session["ID"] = loginDataList[0];
+                        Session["Category"] = loginDataList[2];
+
+
+                        /*
+                        string stringprueba = Session["ID"] as string;
+                        string stringprueba2 = Session["Category"] as string;
+
+                        lblPrueba.Text = "'" + stringprueba +"'" + stringprueba2 + "'";
+                        */
+
+
+                        if (loginDataList[2] == "student") //si la category es student:
+                        {
+                            //Response.Redirect("StudentPage.aspx"); //se redirige a la pagina del estudiante.
+                            lblPrueba2.Text = "Es estudiante!";
+                        }
+
+                        if (loginDataList[2] == "professor") //si la category es profesor:
+                        {
+                            Response.Redirect("ProfessorsPage.aspx"); //se redirige a la pagina del profesor.  
+                        }
+
+                        if (loginDataList[2] == "administrator") //si la category es admin:
+                        {
+                            Response.Redirect("AdministratorPage.aspx"); //se redirige a la pagina del admin.                           
+                        }
+                    }
+                    else
+                    {
+                        lblErrorPass.Visible = true;
+                    }
                 }
 
-                Session["dbInfo"] = loginDataList;
             }
 
 
-            Response.Redirect("UnsecuredPage.aspx");
-
-            */
+            
 
         }
     }

@@ -31,8 +31,8 @@
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
         </div>
 
-        <asp:Label ID="lblPrueba" runat="server" Text="Resultado"></asp:Label>
-
+       
+        <asp:Label ID="lblPrueba2" runat="server" Text="Resultado"></asp:Label>
 
 
         

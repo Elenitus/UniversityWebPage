@@ -105,12 +105,12 @@ namespace UniversityWebPage
         protected global::System.Web.UI.WebControls.Button btnCancel;
 
         /// <summary>
-        /// lblPrueba control.
+        /// lblPrueba2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrueba;
+        protected global::System.Web.UI.WebControls.Label lblPrueba2;
     }
 }
