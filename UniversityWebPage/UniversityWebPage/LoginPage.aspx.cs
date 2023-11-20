@@ -13,5 +13,16 @@ namespace UniversityWebPage
         {
 
         }
+
+        protected void btnCancel_Click(object sender, EventArgs e) //cuando apretamos el botón cancelar 
+        {
+            //se vacía lo que haya escrito el usuario en los inputs
+            txtLoginID.Text = string.Empty; 
+            txtLoginPass.Text = string.Empty;
+
+            //y se vuelve a la home page.
+            //Response.Redirect(HomePage.aspx);
+
+        }
     }
 }
