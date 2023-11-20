@@ -27,9 +27,14 @@
         <br />
         <br />
         <div>
-            <asp:Button ID="btnEnter" runat="server" Text="Enter" />
+            <asp:Button ID="btnEnter" runat="server" Text="Enter" OnClick="btnEnter_Click" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
         </div>
+
+        <asp:Label ID="lblPrueba" runat="server" Text="Resultado"></asp:Label>
+
+
+
         
     </form>
 </body>

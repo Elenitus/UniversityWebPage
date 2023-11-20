@@ -57,3 +57,11 @@ C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\obj
 C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\obj\Debug\UniversityWebPage.csproj.CopyComplete
 C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\obj\Debug\UniversityWebPage.dll
 C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\obj\Debug\UniversityWebPage.pdb
+C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\bin\EntityFramework.dll
+C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\bin\EntityFramework.SqlServer.dll
+C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\bin\System.Data.SQLite.dll
+C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\bin\System.Data.SQLite.EF6.dll
+C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\bin\System.Data.SQLite.Linq.dll
+C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\bin\EntityFramework.xml
+C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\bin\EntityFramework.SqlServer.xml
+C:\Users\mayet\Desktop\UniversityWebPage\UniversityWebPage\UniversityWebPage\bin\System.Data.SQLite.xml
